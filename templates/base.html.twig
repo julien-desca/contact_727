@@ -3,10 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
+            <link rel="stylesheet" type="text/css" href={{asset('/css/bootstrap.css')}} />
         {% endblock %}
 
         {% block javascripts %}
@@ -14,6 +12,18 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <nav class="navbar navbar-dark bg-dark navbar-expand-lg mb-5">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href={{ path("list_contact") }}>Liste des contacts</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href={{ path('create_contact') }}>Nouveau contact</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="container">
+            {% block body %}{% endblock %}
+        </div>
     </body>
 </html>

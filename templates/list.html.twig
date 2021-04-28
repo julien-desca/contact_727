@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Liste des contacts {% endblock %}
+
+{% block body %}
+    <h1>Liste des contacts</h1>
+    <table class="table">
+        <thead>
+            <th>Prenom</th>
+            <th>Nom</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            {% for contact in contactList %}
+                <tr>
+                    <td>{{ contact.firstName }}</td>
+                    <td>{{ contact.lastName }}</td>
+                    <td>
+                        <a href={{ path('detail_contact', {id: contact.id}) }}>Details</a>
+                        <a href={{ path('delete_contact', {id: contact.id}) }}>Supprimer</a>
+                        <a href={{ path('update_contact', {id: contact.id}) }}>Modifier</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

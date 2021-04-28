@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ contact.firstName }} {{ contact.lastName }} {% endblock %}
+
+{% block body %}
+    <h1>{{ contact.firstName }} {{ contact.lastName }}</h1>
+    <p>{{  contact.email }}</p>
+    <ul>
+        {% for tel in contact.phones %}
+            <li>{{ tel.phone }} <a href={{ path('delete_phone', {id: tel.id}) }}>Supprimer</a> <a href={{ path('update_phone', {id:tel.id}) }}>Modifier</a></li>
+        {% endfor %}
+    </ul>
+    {{ form(form) }}
+{% endblock %}
