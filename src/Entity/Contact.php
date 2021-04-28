@@ -42,7 +42,6 @@ class Contact
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\NotBlank(message="Ce champs ne peut pas être vide")
      * @Assert\Length(
      *     max=255,
      *     maxMessage="Ce champs doit faire 255 caractères max."
